@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask whatIsGround; 
     [SerializeField] Transform groundChecker;
 
+    Quaternion startRotation;
+
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -22,14 +24,15 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-       
+        startRotation = transform.rotation;
     }
 
     void Update()
     {
         PlayerMovement();
         CheckIfOnGround();
-        Jumper(); 
+        Jumper();
+        transform.rotation = startRotation; 
     }
 
     private void PlayerMovement()
