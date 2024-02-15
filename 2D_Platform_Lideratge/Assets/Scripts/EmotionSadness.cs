@@ -45,7 +45,8 @@ public class EmotionSadness : MonoBehaviour
     {      
         if (Input.GetKeyDown(_emotionInput))
         {
-            OpenUmbrella();
+            if(_playerController.CanOpenUmbrella)
+                OpenUmbrella();
         }
 
         if (_isUmbrellaOpen == false) return;
