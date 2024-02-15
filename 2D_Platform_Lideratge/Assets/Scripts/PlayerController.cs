@@ -7,16 +7,22 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Input")]
     [SerializeField] KeyCode jumpKeyCode = KeyCode.Space;
+    [SerializeField] KeyCode dashKeyCode = KeyCode.LeftShift;
+
 
     [Header("Attributes")]
     [Range(0, 20)][SerializeField] float speedMovement;
     [Range(0, 20)][SerializeField] float jumpSpeed;
     [Range(0, 20)][SerializeField] private float _maxVerticalVelocity = 10;
     [Range(0, 20)][SerializeField] private float _maxHorizontalVelocity = 10;
+    [Range(10, 50)] [SerializeField] private float _dashPower = 30;
+    [Range(0, 2)] [SerializeField] private float _dashDuration = 0.2f;
+
 
     [Header("References")]
     [SerializeField] LayerMask whatIsGround; 
     [SerializeField] Transform groundChecker;
+    [SerializeField] TrailRenderer _trailRenderer;
 
     #region Getters
 
@@ -28,11 +34,13 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
-    Rigidbody2D rigidbody;
-    bool canJump;
-    
+    private Rigidbody2D rigidbody;
+    private Quaternion startRotation;
 
-    Quaternion startRotation;
+    private bool canJump;
+    private bool canDash = true;
+    private bool isDashing;
+    private float coolDown = 1;
 
     private void Awake()
     {
@@ -49,6 +57,8 @@ public class PlayerController : MonoBehaviour
         PlayerMovement();
         CheckIfOnGround();
         Jumper();
+        PlayerDash(); 
+        
         transform.rotation = startRotation; 
     }
 
@@ -115,6 +125,39 @@ public class PlayerController : MonoBehaviour
     {
         _maxHorizontalVelocity = vel.x;
         _maxVerticalVelocity = vel.y;
+    }
+
+    private void PlayerDash()
+    {
+        if (isDashing) return;
+        if (Input.GetKeyDown(dashKeyCode) && canDash)
+        {
+            Debug.Log("Dash");
+            StartCoroutine(DoDash());
+        }
+        
+    }
+
+    private IEnumerator DoDash()
+    {
+        canDash = false;
+        isDashing = true;
+        float originalGravity = rigidbody.gravityScale;
+        rigidbody.gravityScale = 0f;
+
+        float XmovementDash = rigidbody.velocity.x;
+        XmovementDash *= _dashPower;
+        rigidbody.velocity = new Vector2(XmovementDash, 0f);
+        _trailRenderer.emitting = true;
+
+        yield return new WaitForSeconds(_dashDuration);
+        
+        rigidbody.gravityScale = originalGravity;
+        _trailRenderer.emitting = false;
+        isDashing = false;
+
+        yield return new WaitForSeconds(coolDown);
+        canDash = true; 
     }
 
 }
