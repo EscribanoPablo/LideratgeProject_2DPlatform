@@ -6,14 +6,22 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerController))]
 public class EmotionSadness : MonoBehaviour
 {
+    [Header("Input")]
     [SerializeField] private KeyCode _emotionInput;
 
-    [SerializeField] private float _umbrellaGravity;
-    [SerializeField] private float _maxVerticalVelocity;
+    [Header("References")]
+    [SerializeField] private GameObject _umbrellaVFX;
+
+    [Header("Attributes")]
+    [Range(0, 5)][SerializeField] private float _umbrellaGravity;
+    [Range(0, 10)][SerializeField] private float _maxVerticalVelocity;
+    [Range(0, 10)][SerializeField] private float _maxHorizontalVelocity;
+
+    private Vector2 _maxVelocity;
+    private Vector2 _initialMaxVelocity;
 
     private PlayerController _playerController;
     private float _initialGravity;
-    private float _initialMaxVerticalVelocity;
     private bool _isUmbrellaOpen;
 
 
@@ -26,8 +34,11 @@ public class EmotionSadness : MonoBehaviour
 
     void Start()
     {
+        _maxVelocity = new Vector2(_maxHorizontalVelocity, _maxVerticalVelocity);
+        _initialMaxVelocity = new Vector3(_playerController.MaxHorizontalVelocity,
+                                        _playerController.MaxVerticalVelocity);
+
         _initialGravity = _playerController.Gravity;
-        _initialMaxVerticalVelocity = _playerController.MaxVerticalVelocity;
     }
 
     void Update()
@@ -48,8 +59,9 @@ public class EmotionSadness : MonoBehaviour
     {
         _playerController.SetGravity(_umbrellaGravity);
         _playerController.StopVerticalVelocity();
-        _playerController.SetMaxVerticalVelocity(_maxVerticalVelocity);
+        _playerController.SetMaxVelocity(_maxVelocity);
         _isUmbrellaOpen = true;
+        _umbrellaVFX.SetActive(true);
         Debug.Log("Umbrella Open");
     }
 
@@ -57,7 +69,8 @@ public class EmotionSadness : MonoBehaviour
     {
         _isUmbrellaOpen = false;
         _playerController.SetGravity(_initialGravity);
-        _playerController.SetMaxVerticalVelocity(_initialMaxVerticalVelocity);
+        _playerController.SetMaxVelocity(_initialMaxVelocity);
+        _umbrellaVFX.SetActive(false);
         Debug.Log("Umbrella Closed");
 
     }

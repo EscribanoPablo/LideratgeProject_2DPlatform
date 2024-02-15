@@ -5,21 +5,32 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Input")]
     [SerializeField] KeyCode jumpKeyCode = KeyCode.Space;
 
-    [SerializeField] float speedMovement;
-    [SerializeField] float jumpSpeed;
-    [SerializeField] float _maxVerticalVelocity;
+    [Header("Attributes")]
+    [Range(0, 20)][SerializeField] float speedMovement;
+    [Range(0, 20)][SerializeField] float jumpSpeed;
+    [Range(0, 20)][SerializeField] private float _maxVerticalVelocity = 10;
+    [Range(0, 20)][SerializeField] private float _maxHorizontalVelocity = 10;
+
+    [Header("References")]
+    [SerializeField] LayerMask whatIsGround; 
+    [SerializeField] Transform groundChecker;
+
+    #region Getters
 
     public float Gravity => rigidbody.gravityScale;
     public bool IsFalling => rigidbody.velocity.y < 0 && !canJump;
     public bool IsOnGround => canJump;
     public float MaxVerticalVelocity => _maxVerticalVelocity;
+    public float MaxHorizontalVelocity => _maxVerticalVelocity;
+
+    #endregion
 
     Rigidbody2D rigidbody;
     bool canJump;
-    [SerializeField] LayerMask whatIsGround; 
-    [SerializeField] Transform groundChecker;
+    
 
     Quaternion startRotation;
 
@@ -46,13 +57,13 @@ public class PlayerController : MonoBehaviour
         float horizontalMovement = Input.GetAxis("Horizontal");
         float verticalMovement = Input.GetAxis("Vertical");
 
-        float verticalVelocity = rigidbody.velocity.y;
-        if (verticalVelocity < (-_maxVerticalVelocity))
-            verticalVelocity = -_maxVerticalVelocity;
+        Vector2 direction = new Vector2(horizontalMovement * speedMovement, rigidbody.velocity.y);
 
-        Vector2 direction = new Vector2(horizontalMovement * speedMovement, verticalVelocity);
+        rigidbody.velocity = direction;
 
-        rigidbody.velocity = direction; 
+        //Clamp the velocity
+        Vector2 clampedVelocity = GetClampedVelocities();
+        rigidbody.velocity = new Vector2(clampedVelocity.x, clampedVelocity.y);
     }
     private bool CheckIfOnGround()
     {
@@ -78,6 +89,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private Vector2 GetClampedVelocities()
+    {
+        float verticalVelocity = rigidbody.velocity.y;
+        if (verticalVelocity < (-_maxVerticalVelocity))
+            verticalVelocity = -_maxVerticalVelocity;
+        
+        float horizontalVelocity = Math.Clamp(rigidbody.velocity.x, 
+                                            -_maxHorizontalVelocity, _maxHorizontalVelocity);
+
+        return new Vector2(horizontalVelocity, verticalVelocity);
+    }
+
     public void SetGravity(float amount)
     {
         rigidbody.gravityScale = amount;
@@ -88,9 +111,10 @@ public class PlayerController : MonoBehaviour
         rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0);
     }
 
-    public void SetMaxVerticalVelocity(float amount)
+    public void SetMaxVelocity(Vector3 vel)
     {
-        _maxVerticalVelocity = amount;
+        _maxHorizontalVelocity = vel.x;
+        _maxVerticalVelocity = vel.y;
     }
 
 }
