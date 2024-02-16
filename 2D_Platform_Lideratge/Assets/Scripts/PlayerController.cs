@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [Header("Input")]
     [SerializeField] KeyCode jumpKeyCode = KeyCode.Space;
     [SerializeField] KeyCode dashKeyCode = KeyCode.LeftShift;
+    [SerializeField] KeyCode _crouchKeyCode = KeyCode.LeftControl;
 
 
     [Header("Attributes")]
@@ -18,6 +19,10 @@ public class PlayerController : MonoBehaviour
     [Range(0, 20)][SerializeField] private float _maxHorizontalVelocity = 10;
     [Range(10, 50)] [SerializeField] private float _dashPower = 30;
     [Range(0, 2)] [SerializeField] private float _dashDuration = 0.2f;
+    [Range(0, 5)] [SerializeField] private float _timeToCrouchJump = 1f;
+    [Range(1, 5)] [SerializeField] private float _crouchJumpMultiplier = 2f;
+
+
 
 
     [Header("References")]
@@ -25,6 +30,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform groundChecker;
     [SerializeField] TrailRenderer _trailRenderer;
     [SerializeField] private GameObject _VFX;
+    [SerializeField] private CapsuleCollider2D _standCollider;
+    [SerializeField] private CapsuleCollider2D _crouchCollider;
 
     #region Getters
 
@@ -45,6 +52,9 @@ public class PlayerController : MonoBehaviour
     private bool canDash = true;
     private bool isDashing;
     private float coolDown = 1;
+    private bool _isCrouching = false;
+    private float _crouchingTime = 0;
+    private bool _isCrouchJumpReady = false;
 
     private EmotionSadness _emotionSadness;
     private short _lookingDirection = 1;
@@ -62,9 +72,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        PlayerMovement();
-        CheckIfOnGround();
+        PlayerCrouch();
         Jumper();
+
+        if (_isCrouching) return;
+        PlayerMovement();
         PlayerDash(); 
     }
 
@@ -89,7 +101,7 @@ public class PlayerController : MonoBehaviour
     }
     private bool CheckIfOnGround()
     {
-        float detectionRadius = 0.15f;
+        float detectionRadius = 0.05f;
         var colliders = Physics2D.OverlapCircleAll(groundChecker.position, detectionRadius, whatIsGround);
         if (colliders.Length > 0 && rigidbody.velocity.y <= 0)
             _currentJumpCount = 0;
@@ -116,9 +128,12 @@ public class PlayerController : MonoBehaviour
     }
     private void Jump()
     {
-        StopVerticalVelocity();
+        if (_isCrouching) _isCrouching = false;
+        
+        float jumpForce = _isCrouchJumpReady ? (jumpSpeed * _crouchJumpMultiplier) : jumpSpeed;
         _currentJumpCount++;
-        rigidbody.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+        StopVerticalVelocity();
+        rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 
     private Vector2 GetClampedVelocities()
@@ -160,6 +175,50 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    private void PlayerCrouch()
+    {
+        Debug.Log(_isCrouching);
+
+        if (!CheckIfOnGround())
+        {
+                _isCrouching = false;
+                _crouchCollider.enabled = false;
+                _standCollider.enabled = true;
+                _crouchingTime = 0;
+                _isCrouchJumpReady = false;
+
+            _isCrouching = false;
+            return;
+        }
+
+
+        if (Input.GetKey(_crouchKeyCode))
+        {
+            if(!_isCrouching)
+            {
+                _isCrouching = true;
+                _crouchCollider.enabled = true;
+                _standCollider.enabled = false;
+                rigidbody.velocity = Vector2.zero;
+            }
+
+            _crouchingTime += Time.deltaTime;
+            _isCrouchJumpReady = _crouchingTime >= _timeToCrouchJump;
+        }
+        else
+        {
+            if(_isCrouching)
+            {
+                _isCrouching = false;
+                _crouchCollider.enabled = false;
+                _standCollider.enabled = true;
+                _crouchingTime = 0;
+                _isCrouchJumpReady = false;
+            }
+        }
+
+    }
+
     private IEnumerator DoDash()
     {
         canDash = false;
@@ -188,4 +247,9 @@ public class PlayerController : MonoBehaviour
         canDash = true; 
     }
 
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(groundChecker.position, 0.05f);
+    }
 }

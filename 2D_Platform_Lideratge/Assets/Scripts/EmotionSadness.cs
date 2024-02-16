@@ -73,7 +73,8 @@ public class EmotionSadness : MonoBehaviour
         _playerController.SetMaxVelocity(_initialMaxVelocity);
         _umbrellaVFX.SetActive(false);
         Debug.Log("Umbrella Closed");
-
     }
+
+
 }
 

@@ -129,7 +129,7 @@ GameObject:
   m_Layer: 0
   m_Name: GroundChecker
   m_TagString: Untagged
-  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 3546819650560208530}
   - component: {fileID: 1050531321711112403}
   - component: {fileID: 2837578755975335960}
+  - component: {fileID: 4546038264471026511}
   - component: {fileID: 235524550929476935}
   - component: {fileID: 7318517637471801278}
   - component: {fileID: 6678728650953186532}
@@ -248,6 +249,41 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.5, y: 1}
   m_Direction: 0
+--- !u!70 &4546038264471026511
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6030024519235282046}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 0732c48899c1e6f4bb77273c26f40c53, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.2}
+  m_Size: {x: 0.5, y: 0.6}
+  m_Direction: 0
 --- !u!114 &235524550929476935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,6 +298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpKeyCode: 32
   dashKeyCode: 304
+  _crouchKeyCode: 306
   speedMovement: 4
   jumpSpeed: 8
   _maxJumpCount: 2
@@ -269,12 +306,16 @@ MonoBehaviour:
   _maxHorizontalVelocity: 20
   _dashPower: 10
   _dashDuration: 0.2
+  _timeToCrouchJump: 1
+  _crouchJumpMultiplier: 2
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
   groundChecker: {fileID: 9069450266765421167}
   _trailRenderer: {fileID: 6678728650953186532}
   _VFX: {fileID: 971157291767273213}
+  _standCollider: {fileID: 2837578755975335960}
+  _crouchCollider: {fileID: 4546038264471026511}
 --- !u!114 &7318517637471801278
 MonoBehaviour:
   m_ObjectHideFlags: 0
