@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -245,6 +246,17 @@ public class PlayerController : MonoBehaviour
 
         yield return new WaitForSeconds(coolDown);
         canDash = true; 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Deadzone"))
+        {
+            //Die anim
+            //TODO
+            //Restar scene
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
 
