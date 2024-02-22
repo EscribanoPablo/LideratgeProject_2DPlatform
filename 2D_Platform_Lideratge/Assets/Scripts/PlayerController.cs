@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _VFX;
     [SerializeField] private CapsuleCollider2D _standCollider;
     [SerializeField] private CapsuleCollider2D _crouchCollider;
+    [SerializeField] private Animator _animator;
+    [SerializeField] private ParticleSystem _deathParticles;
 
     #region Getters
 
@@ -57,6 +59,8 @@ public class PlayerController : MonoBehaviour
     private float _crouchingTime = 0;
     private bool _isCrouchJumpReady = false;
 
+    private bool _isDead = false;
+
     private EmotionSadness _emotionSadness;
     private short _lookingDirection = 1;
 
@@ -73,6 +77,15 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if(_isDead)
+        {
+            rigidbody.velocity = Vector2.zero;
+            rigidbody.gravityScale = 0;
+            return;
+        }
+
+        _animator.SetBool("Falling", !CheckIfOnGround() && rigidbody.velocity.y < 0.1f);
+
         PlayerCrouch();
         Jumper();
 
@@ -84,12 +97,14 @@ public class PlayerController : MonoBehaviour
     private void PlayerMovement()
     {
         if (isDashing) return;
+        
         float horizontalMovement = Input.GetAxis("Horizontal");
         float verticalMovement = Input.GetAxis("Vertical");
 
         if (horizontalMovement < 0) _lookingDirection = -1;
         else if (horizontalMovement > 0) _lookingDirection = 1;
-
+        
+        _animator.SetBool("Walking", horizontalMovement != 0);
         _VFX.transform.localScale = new Vector3(_lookingDirection, 1);
 
         Vector2 direction = new Vector2(horizontalMovement * speedMovement, rigidbody.velocity.y);
@@ -106,7 +121,10 @@ public class PlayerController : MonoBehaviour
         var colliders = Physics2D.OverlapCircleAll(groundChecker.position, detectionRadius, whatIsGround);
         if (colliders.Length > 0 && rigidbody.velocity.y <= 0)
             _currentJumpCount = 0;
+
         
+        _animator.SetBool("IsGrounded", colliders.Length > 0);
+
         return (colliders.Length > 0);
     }
 
@@ -135,6 +153,7 @@ public class PlayerController : MonoBehaviour
         _currentJumpCount++;
         StopVerticalVelocity();
         rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        _animator.SetTrigger("Jump");
     }
 
     private Vector2 GetClampedVelocities()
@@ -252,13 +271,27 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.CompareTag("Deadzone"))
         {
-            //Die anim
-            //TODO
-            //Restar scene
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            StartCoroutine(CODeath());
         }
     }
 
+    private IEnumerator CODeath()
+    {
+        _isDead = true;
+        //Die anim
+        _deathParticles.Play();
+        _VFX.SetActive(false);
+        //TODO
+
+        yield return new WaitForSeconds(1);
+
+        //Show telon
+        UIManager.ShowTelon();
+        yield return new WaitForSeconds(2);
+        //Restar scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        yield return null;
+    }
 
     private void OnDrawGizmos()
     {
