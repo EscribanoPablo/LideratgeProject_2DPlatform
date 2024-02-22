@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour
 
     public void OnPlayButtonClicked()
     {
-        SceneManager.LoadSceneAsync("Prototype");
+        SceneManager.LoadScene("Prototype");
     }
 
     public void OnExitButtonClicked()
