@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 378106913302119213}
   - component: {fileID: 9207436000135493392}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6216495696495183215}
   - component: {fileID: 7652819438899480691}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Render
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9069450266765421167}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GroundChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 8984631860944955937}
   - component: {fileID: 3389866377074113814}
   - component: {fileID: 8880973670222882267}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DeathParticlesSmol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5082,7 +5082,7 @@ GameObject:
   - component: {fileID: 235524550929476935}
   - component: {fileID: 7318517637471801278}
   - component: {fileID: 6678728650953186532}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5237,7 +5237,7 @@ MonoBehaviour:
   _standCollider: {fileID: 2837578755975335960}
   _crouchCollider: {fileID: 4546038264471026511}
   _animator: {fileID: 9207436000135493392}
-  _deathParticles: {fileID: 0}
+  _deathParticles: {fileID: 8375044089275053687}
 --- !u!114 &7318517637471801278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5378,7 +5378,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2058620612345828144}
   - component: {fileID: 1571151922217043862}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Umbrella
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5463,7 +5463,7 @@ GameObject:
   - component: {fileID: 656229060729000542}
   - component: {fileID: 8375044089275053687}
   - component: {fileID: 4437984033166909368}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DeathParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
