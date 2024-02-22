@@ -269,13 +269,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Deadzone"))
+        if (collision.CompareTag("Deadzone") )
         {
             StartCoroutine(CODeath());
         }
     }
 
-    private IEnumerator CODeath()
+    public IEnumerator CODeath()
     {
         _isDead = true;
         //Die anim
