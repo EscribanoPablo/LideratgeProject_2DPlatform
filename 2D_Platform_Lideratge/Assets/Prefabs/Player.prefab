@@ -81,7 +81,7 @@ Transform:
   m_GameObject: {fileID: 4220763956559256244}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.631, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -392,8 +392,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.4602314, g: 0.4513617, b: 0.5943396, a: 0.89411765}
-      maxColor: {r: 0.8980392, g: 0.8237989, b: 0.6901961, a: 0.44705883}
+      minColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.764151, g: 0.764151, b: 0.764151, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5084,7 +5084,7 @@ GameObject:
   - component: {fileID: 6678728650953186532}
   m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

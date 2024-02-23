@@ -28,7 +28,7 @@ public class FallingTrap : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.transform == m_Player.transform)
+        if (collision.collider.tag == "Player")
         {
             Debug.Log("Kill Player");
             StartCoroutine(m_Player.CODeath());

@@ -62,4 +62,21 @@ public class MovingPlatform : MonoBehaviour
         _currentWaypointIndex += _currentWaypointDirection;
         _currentTarget = _waypointPositions[_currentWaypointIndex];
     }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            collision.transform.SetParent(transform);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            collision.transform.SetParent(null);
+        }
+    }
 }

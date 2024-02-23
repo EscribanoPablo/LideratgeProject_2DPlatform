@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2164390953210385880}
   m_Layer: 6
   m_Name: FallingTrap
-  m_TagString: Untagged
+  m_TagString: Deadzone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,14 +69,14 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 137
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 5
 --- !u!60 &2164390953210385880
 PolygonCollider2D:
   m_ObjectHideFlags: 0
