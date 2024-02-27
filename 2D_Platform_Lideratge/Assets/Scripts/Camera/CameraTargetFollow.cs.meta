@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 5fd87b1e4221f4240ba64d66e1c22b3a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _virtualCamera: {instanceID: 0}
+  - _player: {fileID: 235524550929476935, guid: 5d62540031c073044adb479595782ef5, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
