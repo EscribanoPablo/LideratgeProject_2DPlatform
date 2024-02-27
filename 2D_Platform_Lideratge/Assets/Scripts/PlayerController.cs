@@ -197,7 +197,6 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerCrouch()
     {
-        Debug.Log(_isCrouching);
 
         if (!CheckIfOnGround())
         {
