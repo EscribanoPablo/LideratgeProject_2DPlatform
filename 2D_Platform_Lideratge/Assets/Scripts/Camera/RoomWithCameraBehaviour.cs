@@ -29,7 +29,7 @@ public class RoomWithCameraBehaviour : MonoBehaviour
     private void OnValidate()
     {
         UpdateBoxSize();
-        UpdateCamSize();
+        //UpdateCamSize();
         if (_freeForm) return;    
         UpdateBoxCollider();
     }

@@ -637,7 +637,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 9.09
+  orthographic size: 6.16
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1687,9 +1687,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 544896092}
     m_Modifications:
+    - target: {fileID: 4192214564834676483, guid: 1e5c110596f82ce46a87451aadd44f64, type: 3}
+      propertyPath: _colliderFractionSize
+      value: 0.857
+      objectReference: {fileID: 0}
     - target: {fileID: 4419297886294121565, guid: 1e5c110596f82ce46a87451aadd44f64, type: 3}
       propertyPath: m_Name
       value: RoomWithCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7876412588389590040, guid: 1e5c110596f82ce46a87451aadd44f64, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 32.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 7876412588389590040, guid: 1e5c110596f82ce46a87451aadd44f64, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 18.18
       objectReference: {fileID: 0}
     - target: {fileID: 7876412588389590040, guid: 1e5c110596f82ce46a87451aadd44f64, type: 3}
       propertyPath: m_LocalPosition.x
