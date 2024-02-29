@@ -46,6 +46,8 @@ public class PlayerController : MonoBehaviour
 
     public bool CanOpenUmbrella => !CheckCanJump();
 
+    public Vector2 SpawnPosition { get { return spawnPosition; } set { spawnPosition = value; } }
+
     #endregion
 
     private Rigidbody2D rigidbody;
@@ -64,6 +66,8 @@ public class PlayerController : MonoBehaviour
     private EmotionSadness _emotionSadness;
     private short _lookingDirection = 1;
 
+    private Vector3 spawnPosition;
+
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -72,6 +76,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        spawnPosition = transform.position;
         _currentJumpCount = 0;
     }
 
@@ -289,6 +294,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(2);
         //Restar scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        transform.position = spawnPosition;
         yield return null;
     }
 

@@ -6,7 +6,7 @@ using UnityEngine;
 public abstract class PlayerDetector : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] PlayerController m_Player;
+    [SerializeField] protected PlayerController m_Player;
 
 
     void Start()
