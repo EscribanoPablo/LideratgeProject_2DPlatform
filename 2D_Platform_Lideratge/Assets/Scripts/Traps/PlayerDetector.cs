@@ -3,15 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDetector : MonoBehaviour
+public abstract class PlayerDetector : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] PlayerController m_Player;
 
-
-    [Header("")]
-    [SerializeField] bool m_CanDetect = true;
-    public Action OnPlayerDetected;
 
     void Start()
     {
@@ -21,20 +17,15 @@ public class PlayerDetector : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (!m_CanDetect) return;
+        //if (!m_CanDetect) return;
 
         if (collision.transform == m_Player.transform)
         {
-            Debug.Log("Player Detected");
-            OnPlayerDetected?.Invoke();
+            Debug.Log("Player Triggered");
+            DoSomething();
         }
     }
 
+    protected abstract void DoSomething();
    
-
-    public void SetCanDetect(bool v)
-    {
-        m_CanDetect = v;
-    }
-    
 }

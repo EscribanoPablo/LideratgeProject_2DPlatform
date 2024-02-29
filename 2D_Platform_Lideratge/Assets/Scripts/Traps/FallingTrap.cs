@@ -6,7 +6,7 @@ public class FallingTrap : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] PlayerController m_Player;
-    [SerializeField] PlayerDetector m_PlayerDetector;
+    [SerializeField] FallingTrapTrigger m_fallingTrapTrigger;
 
     Rigidbody2D m_Rb;
 
@@ -18,12 +18,12 @@ public class FallingTrap : MonoBehaviour
 
     private void OnEnable()
     {
-        m_PlayerDetector.OnPlayerDetected += OnPlayerDetected;
+        m_fallingTrapTrigger.OnPlayerDetected += OnPlayerDetected;
     }
 
     private void OnDisable()
     {
-        m_PlayerDetector.OnPlayerDetected -= OnPlayerDetected;
+        m_fallingTrapTrigger.OnPlayerDetected -= OnPlayerDetected;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -47,6 +47,6 @@ public class FallingTrap : MonoBehaviour
     private void OnPlayerDetected()
     {
         m_Rb.bodyType = RigidbodyType2D.Dynamic;
-        m_PlayerDetector.SetCanDetect(false);
+        m_fallingTrapTrigger.SetCanDetect(false);
     }
 }
