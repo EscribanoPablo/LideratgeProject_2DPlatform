@@ -294,7 +294,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(2);
         //Restar scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        transform.position = spawnPosition;
+        transform.position = GameManager.Instance.SpawnPosition;
         yield return null;
     }
 
