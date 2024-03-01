@@ -70,6 +70,16 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        if (GameManager.GetGameManager().GetPlayer() == null)
+        {
+            GameManager.GetGameManager().m_Player = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            GameObject.Destroy(this.gameObject);
+        }
+
         rigidbody = GetComponent<Rigidbody2D>();
         _emotionSadness = GetComponent<EmotionSadness>();
     }
@@ -293,9 +303,16 @@ public class PlayerController : MonoBehaviour
         UIManager.ShowTelon();
         yield return new WaitForSeconds(2);
         //Restar scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        transform.position = GameManager.Instance.SpawnPosition;
+        Restart();
         yield return null;
+    }
+
+    private void Restart()
+    {
+        _isDead = false;
+        _VFX.SetActive(true);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        transform.position = GameManager.GetGameManager().SpawnPosition;
     }
 
     private void OnDrawGizmos()

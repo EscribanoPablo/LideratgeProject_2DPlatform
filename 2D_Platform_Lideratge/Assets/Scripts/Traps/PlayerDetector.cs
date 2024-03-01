@@ -6,24 +6,35 @@ using UnityEngine;
 public abstract class PlayerDetector : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] protected PlayerController m_Player;
+    protected PlayerController m_Player;
 
 
     void Start()
     {
-        m_Player = FindAnyObjectByType<PlayerController>();
+        m_Player = GameManager.GetGameManager().GetPlayer();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
         //if (!m_CanDetect) return;
-
-        if (collision.transform == m_Player.transform)
+        if (m_Player != null)
         {
-            Debug.Log("Player Triggered");
-            DoSomething();
+            if (collision.transform == m_Player.transform)
+            {
+                Debug.Log("Player Triggered");
+                DoSomething();
+            }
         }
+        else
+        {
+            if (collision.tag == "Player")
+            {
+                Debug.Log("Player Triggered by Tag");
+                DoSomething();
+            }
+        }
+
     }
 
     protected abstract void DoSomething();

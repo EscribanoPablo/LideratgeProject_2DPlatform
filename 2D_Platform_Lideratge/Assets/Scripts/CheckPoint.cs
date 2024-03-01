@@ -6,6 +6,6 @@ public class CheckPoint : PlayerDetector
 {
     protected override void DoSomething()
     {
-        GameManager.Instance.SpawnPosition = transform.position;
+        GameManager.GetGameManager().SpawnPosition = transform.position;
     }
 }
