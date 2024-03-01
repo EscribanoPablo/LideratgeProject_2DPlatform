@@ -92,6 +92,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("Is dead = " + _isDead);
         if(_isDead)
         {
             rigidbody.velocity = Vector2.zero;
