@@ -199,6 +199,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6678728650953186532, guid: 5d62540031c073044adb479595782ef5, type: 3}
+      propertyPath: m_Parameters.colorGradient.m_ColorSpace
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 7372540867189839575, guid: 5d62540031c073044adb479595782ef5, type: 3}
       propertyPath: m_Layer
       value: 7
