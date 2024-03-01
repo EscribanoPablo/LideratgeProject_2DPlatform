@@ -68,6 +68,8 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 spawnPosition;
 
+    private float originalGravityScale;
+
     private void Awake()
     {
         if (GameManager.GetGameManager().GetPlayer() == null)
@@ -88,6 +90,7 @@ public class PlayerController : MonoBehaviour
     {
         spawnPosition = transform.position;
         _currentJumpCount = 0;
+        originalGravityScale = rigidbody.gravityScale;
     }
 
     void Update()
@@ -265,7 +268,6 @@ public class PlayerController : MonoBehaviour
         canDash = false;
         isDashing = true;
         
-        float originalGravity = rigidbody.gravityScale;
         rigidbody.gravityScale = 0f;
 
         SetMaxVelocity(new Vector2(_dashPower, 20));
@@ -280,7 +282,7 @@ public class PlayerController : MonoBehaviour
         SetMaxVelocity(new Vector2(_maxHorizontalVelocity, _maxVerticalVelocity));
 
 
-        rigidbody.gravityScale = originalGravity;
+        rigidbody.gravityScale = originalGravityScale;
         _trailRenderer.emitting = false;
         isDashing = false;
 
@@ -321,6 +323,7 @@ public class PlayerController : MonoBehaviour
         _VFX.SetActive(true);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         transform.position = GameManager.GetGameManager().SpawnPosition;
+        rigidbody.gravityScale = originalGravityScale;
     }
 
     private void OnDrawGizmos()
