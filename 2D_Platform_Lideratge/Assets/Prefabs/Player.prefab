@@ -5098,7 +5098,7 @@ Transform:
   m_GameObject: {fileID: 6030024519235282046}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.92, y: -2.6, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5238,6 +5238,7 @@ MonoBehaviour:
   _crouchCollider: {fileID: 4546038264471026511}
   _animator: {fileID: 9207436000135493392}
   _deathParticles: {fileID: 8375044089275053687}
+  CanOpenUmbrella: 0
 --- !u!114 &7318517637471801278
 MonoBehaviour:
   m_ObjectHideFlags: 0
