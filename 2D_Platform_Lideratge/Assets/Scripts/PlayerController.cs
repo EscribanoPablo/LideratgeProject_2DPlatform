@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
     public float MaxVerticalVelocity => _maxVerticalVelocity;
     public float MaxHorizontalVelocity => _maxVerticalVelocity;
 
-    public bool CanOpenUmbrella => !CheckCanJump();
+    public bool CanOpenUmbrella = false;
 
     public Vector2 SpawnPosition { get { return spawnPosition; } set { spawnPosition = value; } }
 
@@ -145,8 +145,14 @@ public class PlayerController : MonoBehaviour
         {
             if (CheckCanJump())
             {
+                CanOpenUmbrella = false;
                 Jump();
             }
+            else
+            {
+                GetComponent<EmotionSadness>().OpenUmbrella();
+            }
+
         }
 
     }
@@ -275,7 +281,8 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.CompareTag("Deadzone") )
         {
-            StartCoroutine(CODeath());
+            if(!_isDead) 
+                StartCoroutine(CODeath());
         }
     }
 

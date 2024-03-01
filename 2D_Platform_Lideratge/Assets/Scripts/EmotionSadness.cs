@@ -43,11 +43,11 @@ public class EmotionSadness : MonoBehaviour
 
     void Update()
     {      
-        if (Input.GetKeyDown(_emotionInput))
-        {
-            if(_playerController.CanOpenUmbrella)
-                OpenUmbrella();
-        }
+        //if (Input.GetKeyDown(_emotionInput))
+        //{
+        //    if(_playerController.CanOpenUmbrella)
+        //        OpenUmbrella();
+        //}
 
         if (_isUmbrellaOpen == false) return;
         if (Input.GetKeyUp(_emotionInput) || _playerController.IsOnGround)
@@ -56,7 +56,7 @@ public class EmotionSadness : MonoBehaviour
         }
     }
 
-    private void OpenUmbrella()
+    public void OpenUmbrella()
     {
         _playerController.SetGravity(_umbrellaGravity);
         _playerController.StopVerticalVelocity();
