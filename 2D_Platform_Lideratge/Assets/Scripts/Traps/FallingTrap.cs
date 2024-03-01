@@ -5,13 +5,17 @@ using UnityEngine;
 public class FallingTrap : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] PlayerController m_Player;
+    PlayerController m_Player;
     [SerializeField] FallingTrapTrigger m_fallingTrapTrigger;
 
     Rigidbody2D m_Rb;
 
     private void Awake()
     {
+    }
+    private void Start()
+    {
+        m_Player = GameManager.GetGameManager().GetPlayer();
         m_Rb = GetComponent<Rigidbody2D>();
         m_Rb.bodyType = RigidbodyType2D.Static;
     }
@@ -28,7 +32,7 @@ public class FallingTrap : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "Player")
+        if (collision.transform == m_Player.transform)
         {
             Debug.Log("Kill Player");
             StartCoroutine(m_Player.CODeath());
