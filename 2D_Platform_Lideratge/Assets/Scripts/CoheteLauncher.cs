@@ -10,6 +10,7 @@ public class CoheteLauncher : MonoBehaviour
     [SerializeField] private Vector2 _coheteSpeed;
     [SerializeField] private float _shootTime;
     [SerializeField] private float _startDelay;
+    [SerializeField] private float timeToDestroy;
 
     private float _shootTimer;
 
@@ -33,6 +34,6 @@ public class CoheteLauncher : MonoBehaviour
     {
         Rigidbody2D rb = Instantiate(_cohete, _shootPosition.position, Quaternion.identity).GetComponent<Rigidbody2D>();
         rb.velocity = _coheteSpeed;
-        Destroy(rb.gameObject, 10.0f);
+        Destroy(rb.gameObject, timeToDestroy);
     }
 }

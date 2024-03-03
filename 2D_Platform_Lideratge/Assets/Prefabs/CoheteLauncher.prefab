@@ -81,6 +81,8 @@ MonoBehaviour:
   _shootPosition: {fileID: 1559721879948732626}
   _coheteSpeed: {x: -3, y: 0}
   _shootTime: 5
+  _startDelay: 0
+  timeToDestroy: 0
 --- !u!212 &1427255202179301790
 SpriteRenderer:
   m_ObjectHideFlags: 0
