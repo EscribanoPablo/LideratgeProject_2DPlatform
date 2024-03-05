@@ -12,6 +12,9 @@ public class CoheteLauncher : MonoBehaviour
     [SerializeField] private float _startDelay;
     [SerializeField] private float timeToDestroy;
 
+    [SerializeField] private ParticleSystem _ShootParticles;
+
+
     private float _shootTimer;
 
     // Start is called before the first frame update
@@ -35,5 +38,6 @@ public class CoheteLauncher : MonoBehaviour
         Rigidbody2D rb = Instantiate(_cohete, _shootPosition.position, Quaternion.identity).GetComponent<Rigidbody2D>();
         rb.velocity = _coheteSpeed;
         Destroy(rb.gameObject, timeToDestroy);
+        _ShootParticles.Play();
     }
 }
