@@ -1264,6 +1264,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlatafomaRompible (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8670933570532017710, guid: 3fbfda15b682e474589c07662f6e8a74, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 14.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670933570532017710, guid: 3fbfda15b682e474589c07662f6e8a74, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 4.31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10392,7 +10400,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4192214564834676483, guid: 1e5c110596f82ce46a87451aadd44f64, type: 3}
       propertyPath: _colliderFractionSize
-      value: 0.57
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4419297886294121565, guid: 1e5c110596f82ce46a87451aadd44f64, type: 3}
       propertyPath: m_Name
@@ -10444,11 +10452,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8032821820444555697, guid: 1e5c110596f82ce46a87451aadd44f64, type: 3}
       propertyPath: m_Size.x
-      value: 0.5960742
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 8032821820444555697, guid: 1e5c110596f82ce46a87451aadd44f64, type: 3}
       propertyPath: m_Size.y
-      value: 0.57
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 8032821820444555697, guid: 1e5c110596f82ce46a87451aadd44f64, type: 3}
       propertyPath: m_Offset.x
@@ -17444,7 +17452,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 6.16
+  orthographic size: 5.74
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -17469,7 +17477,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.479996, y: -3.5600004, z: -10}
+  m_LocalPosition: {x: 38.83288, y: -3.8000002, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -31813,8 +31821,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.30870008, y: 0.43385005, z: 0}
-    m_Extent: {x: 6.7069, y: 5.73495, z: 0}
+    m_Center: {x: 0.30900002, y: 0.4331498, z: 0}
+    m_Extent: {x: 6.7062, y: 5.73455, z: 0}
   m_PointLightInnerAngle: 192.69
   m_PointLightOuterAngle: 192.69
   m_PointLightInnerRadius: 2.32
@@ -57222,7 +57230,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7309056218456333747, guid: a17f0053834dfae4b9ec2975e458d4ee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.282005
+      value: 20.04
       objectReference: {fileID: 0}
     - target: {fileID: 7309056218456333747, guid: a17f0053834dfae4b9ec2975e458d4ee, type: 3}
       propertyPath: m_LocalPosition.y

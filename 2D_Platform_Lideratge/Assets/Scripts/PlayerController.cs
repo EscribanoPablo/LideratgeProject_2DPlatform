@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CapsuleCollider2D _crouchCollider;
     [SerializeField] private Animator _animator;
     [SerializeField] private ParticleSystem _deathParticles;
+    [SerializeField] private ParticleSystem _dustParticles;
+
 
     #region Getters
 
@@ -179,6 +181,7 @@ public class PlayerController : MonoBehaviour
         StopVerticalVelocity();
         rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         _animator.SetTrigger("Jump");
+        _dustParticles.Play();
     }
 
     private Vector2 GetClampedVelocities()
