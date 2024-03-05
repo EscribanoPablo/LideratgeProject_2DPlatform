@@ -553,7 +553,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7309056218456333747, guid: a17f0053834dfae4b9ec2975e458d4ee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -38.50109
+      value: -38.28
       objectReference: {fileID: 0}
     - target: {fileID: 7309056218456333747, guid: a17f0053834dfae4b9ec2975e458d4ee, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8629,7 +8629,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4192214564834676483, guid: 1e5c110596f82ce46a87451aadd44f64, type: 3}
       propertyPath: _colliderFractionSize
-      value: 0.556
+      value: 0.578
       objectReference: {fileID: 0}
     - target: {fileID: 4419297886294121565, guid: 1e5c110596f82ce46a87451aadd44f64, type: 3}
       propertyPath: m_Name
@@ -8681,11 +8681,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8032821820444555697, guid: 1e5c110596f82ce46a87451aadd44f64, type: 3}
       propertyPath: m_Size.x
-      value: 0.556
+      value: 0.578
       objectReference: {fileID: 0}
     - target: {fileID: 8032821820444555697, guid: 1e5c110596f82ce46a87451aadd44f64, type: 3}
       propertyPath: m_Size.y
-      value: 0.556
+      value: 0.578
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10399,7 +10399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4192214564834676483, guid: 1e5c110596f82ce46a87451aadd44f64, type: 3}
       propertyPath: _colliderFractionSize
-      value: 0.57
+      value: 0.583
       objectReference: {fileID: 0}
     - target: {fileID: 4419297886294121565, guid: 1e5c110596f82ce46a87451aadd44f64, type: 3}
       propertyPath: m_Name
@@ -10451,11 +10451,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8032821820444555697, guid: 1e5c110596f82ce46a87451aadd44f64, type: 3}
       propertyPath: m_Size.x
-      value: 0.5960742
+      value: 0.583
       objectReference: {fileID: 0}
     - target: {fileID: 8032821820444555697, guid: 1e5c110596f82ce46a87451aadd44f64, type: 3}
       propertyPath: m_Size.y
-      value: 0.57
+      value: 0.583
       objectReference: {fileID: 0}
     - target: {fileID: 8032821820444555697, guid: 1e5c110596f82ce46a87451aadd44f64, type: 3}
       propertyPath: m_Offset.x
@@ -11042,7 +11042,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7309056218456333747, guid: a17f0053834dfae4b9ec2975e458d4ee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.772846
+      value: -19.18
       objectReference: {fileID: 0}
     - target: {fileID: 7309056218456333747, guid: a17f0053834dfae4b9ec2975e458d4ee, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11889,6 +11889,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 514072798}
     m_Modifications:
+    - target: {fileID: 914141078653714949, guid: d9e7b0792c707f642a5c670282335e89, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1043773295792813135, guid: d9e7b0792c707f642a5c670282335e89, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.7
@@ -11904,6 +11908,10 @@ PrefabInstance:
     - target: {fileID: 3019744746740908614, guid: d9e7b0792c707f642a5c670282335e89, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064840708346344820, guid: d9e7b0792c707f642a5c670282335e89, type: 3}
+      propertyPath: m_Icon
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5263897305517473575, guid: d9e7b0792c707f642a5c670282335e89, type: 3}
       propertyPath: m_LocalPosition.x
@@ -31899,8 +31907,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.30855012, y: 0.43344998, z: 0}
-    m_Extent: {x: 6.70735, y: 5.73555, z: 0}
+    m_Center: {x: 0.30894995, y: 0.4329002, z: 0}
+    m_Extent: {x: 6.70765, y: 5.7347, z: 0}
   m_PointLightInnerAngle: 192.69
   m_PointLightOuterAngle: 192.69
   m_PointLightInnerRadius: 2.32
@@ -49649,6 +49657,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -1.9272285
       objectReference: {fileID: 0}
+    - target: {fileID: 5017830318121086579, guid: af3fdc8a0a6fb8e479133cb918c6eeb1, type: 3}
+      propertyPath: m_Name
+      value: Sprite
+      objectReference: {fileID: 0}
     - target: {fileID: 5907766670135697527, guid: af3fdc8a0a6fb8e479133cb918c6eeb1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22.238503
@@ -49694,7 +49706,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8779146014394591990, guid: af3fdc8a0a6fb8e479133cb918c6eeb1, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af3fdc8a0a6fb8e479133cb918c6eeb1, type: 3}
@@ -57308,7 +57321,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7309056218456333747, guid: a17f0053834dfae4b9ec2975e458d4ee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.282005
+      value: 19.91
       objectReference: {fileID: 0}
     - target: {fileID: 7309056218456333747, guid: a17f0053834dfae4b9ec2975e458d4ee, type: 3}
       propertyPath: m_LocalPosition.y
@@ -79271,11 +79284,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3546819650560208530, guid: 5d62540031c073044adb479595782ef5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 87.64
+      value: 68.75
       objectReference: {fileID: 0}
     - target: {fileID: 3546819650560208530, guid: 5d62540031c073044adb479595782ef5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.9
+      value: 0.94
       objectReference: {fileID: 0}
     - target: {fileID: 3546819650560208530, guid: 5d62540031c073044adb479595782ef5, type: 3}
       propertyPath: m_LocalPosition.z

@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Is dead = " + _isDead);
+        // Debug.Log("Is dead = " + _isDead);
         if(_isDead)
         {
             rigidbody.velocity = Vector2.zero;
@@ -225,11 +225,12 @@ public class PlayerController : MonoBehaviour
 
         if (!CheckIfOnGround())
         {
-                _isCrouching = false;
-                _crouchCollider.enabled = false;
-                _standCollider.enabled = true;
-                _crouchingTime = 0;
-                _isCrouchJumpReady = false;
+            _animator.SetBool("Crouching", false);
+            _isCrouching = false;
+            _crouchCollider.enabled = false;
+            _standCollider.enabled = true;
+            _crouchingTime = 0;
+            _isCrouchJumpReady = false;
 
             _isCrouching = false;
             return;
@@ -240,6 +241,7 @@ public class PlayerController : MonoBehaviour
         {
             if(!_isCrouching)
             {
+                _animator.SetBool("Crouching", true);
                 _isCrouching = true;
                 _crouchCollider.enabled = true;
                 _standCollider.enabled = false;
@@ -253,6 +255,7 @@ public class PlayerController : MonoBehaviour
         {
             if(_isCrouching)
             {
+                _animator.SetBool("Crouching", false);
                 _isCrouching = false;
                 _crouchCollider.enabled = false;
                 _standCollider.enabled = true;
