@@ -11,7 +11,6 @@ public class BreakablePlatform : MonoBehaviour
 
     [SerializeField] private ParticleSystem _breakParticles;
 
-    private SpriteRenderer _spriteRenderer;
     private Collider2D[] _colliders;
     private bool _isBreaking;
 
@@ -19,14 +18,17 @@ public class BreakablePlatform : MonoBehaviour
     private WaitForSeconds _beforeBreakWait;
     private WaitForSeconds _ReapearWait;
 
+    public GameObject _PlataformSprite;
+
 
     private void Awake()
     {
         _beforeBreakWait = new WaitForSeconds(_timeBeforeBreak);
         _ReapearWait = new WaitForSeconds(_timeForReapear);
 
-        _spriteRenderer = GetComponent<SpriteRenderer>();
         _colliders = GetComponents<Collider2D>();
+        _breakParticles.Stop();
+
     }
 
 
@@ -34,23 +36,28 @@ public class BreakablePlatform : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            if(!_isBreaking)
+            if (!_isBreaking)
+            {
                 StartCoroutine(CO_BreakPlatform());
+
+            }
+            
         }
     }
-
     IEnumerator CO_BreakPlatform()
     {
         _isBreaking = true;
+        _breakParticles.Play();
+
         yield return _beforeBreakWait;
 
-        _spriteRenderer.enabled = false;
         foreach(Collider2D collider in _colliders) { collider.enabled = false; }
-        _breakParticles.Play();
+        _PlataformSprite.GetComponent<SpriteRenderer>().enabled = false;
+        _breakParticles.Stop();
 
         yield return _ReapearWait;
 
-        _spriteRenderer.enabled = true;
+        //_PlataformSprite.GetComponent<SpriteRenderer>().enabled = true;
         foreach (Collider2D collider in _colliders) { collider.enabled = true; }
         _isBreaking = false;
 
