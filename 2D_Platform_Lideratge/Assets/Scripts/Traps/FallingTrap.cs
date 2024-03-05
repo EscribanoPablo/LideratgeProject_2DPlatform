@@ -9,6 +9,8 @@ public class FallingTrap : MonoBehaviour
     [SerializeField] FallingTrapTrigger m_fallingTrapTrigger;
 
     Rigidbody2D m_Rb;
+    [SerializeField] float minVelocityToKill = 3;
+    bool canKill;
 
     private void Awake()
     {
@@ -34,8 +36,11 @@ public class FallingTrap : MonoBehaviour
     {
         if (collision.transform == m_Player.transform)
         {
-            Debug.Log("Kill Player");
-            StartCoroutine(m_Player.CODeath());
+            if (canKill)
+            {
+                Debug.Log("Kill Player");
+                StartCoroutine(m_Player.CODeath());
+            }
         }
     }
 
@@ -47,6 +52,15 @@ public class FallingTrap : MonoBehaviour
     //        StartCoroutine(m_Player.CODeath());
     //    }
     //}
+
+    private void Update()
+    {
+        if (m_Rb.velocity.y < minVelocityToKill && m_Rb.velocity.y > -minVelocityToKill)
+        {
+            canKill = false;
+        }
+        else { canKill = true; }
+    }
 
     private void OnPlayerDetected()
     {
