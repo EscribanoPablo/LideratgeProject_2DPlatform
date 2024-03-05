@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
     public float MaxVerticalVelocity => _maxVerticalVelocity;
     public float MaxHorizontalVelocity => _maxVerticalVelocity;
 
-    public bool CanOpenUmbrella => !CheckCanJump();
+    public bool CanOpenUmbrella = false;
 
     public Vector2 SpawnPosition { get { return spawnPosition; } set { spawnPosition = value; } }
 
@@ -68,8 +68,20 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 spawnPosition;
 
+    private float originalGravityScale;
+
     private void Awake()
     {
+        if (GameManager.GetGameManager().GetPlayer() == null)
+        {
+            GameManager.GetGameManager().m_Player = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            GameObject.Destroy(this.gameObject);
+        }
+
         rigidbody = GetComponent<Rigidbody2D>();
         _emotionSadness = GetComponent<EmotionSadness>();
     }
@@ -78,10 +90,12 @@ public class PlayerController : MonoBehaviour
     {
         spawnPosition = transform.position;
         _currentJumpCount = 0;
+        originalGravityScale = rigidbody.gravityScale;
     }
 
     void Update()
     {
+        Debug.Log("Is dead = " + _isDead);
         if(_isDead)
         {
             rigidbody.velocity = Vector2.zero;
@@ -145,8 +159,14 @@ public class PlayerController : MonoBehaviour
         {
             if (CheckCanJump())
             {
+                CanOpenUmbrella = false;
                 Jump();
             }
+            else
+            {
+                GetComponent<EmotionSadness>().OpenUmbrella();
+            }
+
         }
 
     }
@@ -248,7 +268,6 @@ public class PlayerController : MonoBehaviour
         canDash = false;
         isDashing = true;
         
-        float originalGravity = rigidbody.gravityScale;
         rigidbody.gravityScale = 0f;
 
         SetMaxVelocity(new Vector2(_dashPower, 20));
@@ -263,7 +282,7 @@ public class PlayerController : MonoBehaviour
         SetMaxVelocity(new Vector2(_maxHorizontalVelocity, _maxVerticalVelocity));
 
 
-        rigidbody.gravityScale = originalGravity;
+        rigidbody.gravityScale = originalGravityScale;
         _trailRenderer.emitting = false;
         isDashing = false;
 
@@ -275,7 +294,8 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.CompareTag("Deadzone") )
         {
-            StartCoroutine(CODeath());
+            if(!_isDead) 
+                StartCoroutine(CODeath());
         }
     }
 
@@ -293,9 +313,17 @@ public class PlayerController : MonoBehaviour
         UIManager.ShowTelon();
         yield return new WaitForSeconds(2);
         //Restar scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        transform.position = GameManager.Instance.SpawnPosition;
+        Restart();
         yield return null;
+    }
+
+    private void Restart()
+    {
+        _isDead = false;
+        _VFX.SetActive(true);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        transform.position = GameManager.GetGameManager().SpawnPosition;
+        rigidbody.gravityScale = originalGravityScale;
     }
 
     private void OnDrawGizmos()
