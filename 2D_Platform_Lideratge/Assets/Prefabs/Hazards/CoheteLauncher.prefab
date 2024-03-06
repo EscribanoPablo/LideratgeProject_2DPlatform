@@ -4913,7 +4913,7 @@ MonoBehaviour:
   _coheteSpeed: {x: -3, y: 0}
   _shootTime: 5
   _startDelay: 0
-  timeToDestroy: 0
+  timeToDestroy: 10
   _ShootParticles: {fileID: 2117675851269967010}
 --- !u!212 &1427255202179301790
 SpriteRenderer:
