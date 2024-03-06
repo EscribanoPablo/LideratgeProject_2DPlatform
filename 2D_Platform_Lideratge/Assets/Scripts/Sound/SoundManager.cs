@@ -159,14 +159,10 @@ public class AudioFile
 
 public static class AudioNames
 {
-    public static readonly string TEST = "MUSIC";
-    public static readonly string DRUM = "DRUM";
-    public static readonly string BADDRUM = "BADDRUM";
-    public static readonly string PLOP = "PLOP";
-    public static readonly string STEP_SNOW = "STEP_SNOW";
-    public static readonly string INU_MAN_TALK = "INU_MAN_TALK";
-    public static readonly string CNT_WOM_TALK = "CNT_WOM_TALK";
-    public static readonly string GOOD_DRUM_ROUND = "GOOD_DRUM_ROUND";
-    public static readonly string YIPEE = "YIPEE";
+    public static readonly string STEP = "STEP";
+    public static readonly string LVLMUSIC = "LVLMUSIC";
+    public static readonly string DIE = "DIE";
+    public static readonly string BLOQUE = "BLOQUE";
+    public static readonly string SHOOT = "SHOOT";
 }
 

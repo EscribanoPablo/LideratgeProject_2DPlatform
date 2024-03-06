@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fallingTrapTrigger: {fileID: 2788669524272946463}
+  minVelocityToKill: 3
 --- !u!50 &4391174781473382083
 Rigidbody2D:
   serializedVersion: 4

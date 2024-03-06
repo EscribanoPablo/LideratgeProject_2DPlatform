@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(AudioSource), typeof(AudioSource))]
 public class PlayerController : MonoBehaviour
 {
     [Header("Input")]
@@ -72,6 +73,8 @@ public class PlayerController : MonoBehaviour
 
     private float originalGravityScale;
 
+    private AudioSource[] _audioSources = new AudioSource[2];
+
     private void Awake()
     {
         if (GameManager.GetGameManager().GetPlayer() == null)
@@ -86,6 +89,8 @@ public class PlayerController : MonoBehaviour
 
         rigidbody = GetComponent<Rigidbody2D>();
         _emotionSadness = GetComponent<EmotionSadness>();
+
+        _audioSources = GetComponents<AudioSource>();
     }
 
     void Start()
@@ -93,6 +98,8 @@ public class PlayerController : MonoBehaviour
         spawnPosition = transform.position;
         _currentJumpCount = 0;
         originalGravityScale = rigidbody.gravityScale;
+
+        SoundManager.PlayMusic(AudioNames.LVLMUSIC);
     }
 
     void Update()
@@ -119,8 +126,8 @@ public class PlayerController : MonoBehaviour
     {
         if (isDashing) return;
         
-        float horizontalMovement = Input.GetAxis("Horizontal");
-        float verticalMovement = Input.GetAxis("Vertical");
+        float horizontalMovement = Input.GetAxisRaw("Horizontal");
+        float verticalMovement = Input.GetAxisRaw("Vertical");
 
         if (horizontalMovement < 0) _lookingDirection = -1;
         else if (horizontalMovement > 0) _lookingDirection = 1;
@@ -311,6 +318,7 @@ public class PlayerController : MonoBehaviour
         //Die anim
         _deathParticles.Play();
         _VFX.SetActive(false);
+        SoundManager.PlaySFX(AudioNames.DIE, _audioSources[0]);
         //TODO
 
         yield return new WaitForSeconds(1);
@@ -335,5 +343,11 @@ public class PlayerController : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(groundChecker.position, 0.05f);
+    }
+
+    public void PlaySound(string soundName)
+    {
+        AudioSource au = _audioSources[0].isPlaying ? _audioSources[1] : _audioSources[0];
+        SoundManager.PlaySFX(soundName, au);
     }
 }

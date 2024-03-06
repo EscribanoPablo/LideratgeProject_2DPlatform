@@ -1541,6 +1541,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pinchos (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 5258464302168228326, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7487768519580564064, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.2580565
@@ -3464,6 +3468,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pinchos (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 5258464302168228326, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7487768519580564064, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.38337797
@@ -4691,6 +4699,10 @@ PrefabInstance:
     - target: {fileID: 4285859548875911569, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_Name
       value: Pinchos (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5258464302168228326, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7487768519580564064, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_LocalScale.x
@@ -6622,6 +6634,10 @@ PrefabInstance:
     - target: {fileID: 4285859548875911569, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_Name
       value: Pinchos (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5258464302168228326, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7487768519580564064, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_LocalScale.x
@@ -17452,7 +17468,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 5.74
+  orthographic size: 6.16
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -17477,7 +17493,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 38.83288, y: -3.8000002, z: -10}
+  m_LocalPosition: {x: 17.479996, y: -3.5600004, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27508,6 +27524,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pinchos (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 5258464302168228326, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7487768519580564064, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.38337797
@@ -31821,8 +31841,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.30935, y: 0.43405008, z: 0}
-    m_Extent: {x: 6.70705, y: 5.73525, z: 0}
+    m_Center: {x: 0.30925012, y: 0.43365002, z: 0}
+    m_Extent: {x: 6.7072496, y: 5.73555, z: 0}
   m_PointLightInnerAngle: 192.69
   m_PointLightOuterAngle: 192.69
   m_PointLightInnerRadius: 2.32
@@ -34980,6 +35000,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pinchos (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5258464302168228326, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7487768519580564064, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_LocalScale.x
       value: 3.6521513
@@ -37414,7 +37438,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: 188220709, guid: 216373deb786b9e48abfcb8a5c0d124b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -42163,6 +42187,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pinchos (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 5258464302168228326, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7487768519580564064, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.8748516
@@ -45484,6 +45512,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pinchos (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5258464302168228326, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7487768519580564064, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_LocalScale.x
       value: 15.258642
@@ -45637,6 +45669,10 @@ PrefabInstance:
     - target: {fileID: 4285859548875911569, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_Name
       value: Pinchos (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5258464302168228326, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7487768519580564064, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_LocalScale.x
@@ -56068,6 +56104,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pinchos (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 5258464302168228326, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7487768519580564064, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.38337797
@@ -56140,7 +56180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5258464302168228326, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7487768519580564064, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_LocalScale.x
@@ -56826,6 +56866,10 @@ PrefabInstance:
     - target: {fileID: 4285859548875911569, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_Name
       value: SuperDeadZone
+      objectReference: {fileID: 0}
+    - target: {fileID: 5258464302168228326, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7487768519580564064, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_LocalScale.x
@@ -59226,6 +59270,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pinchos (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5258464302168228326, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7487768519580564064, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.38337797
@@ -60892,6 +60940,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SuperDeadZone (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5258464302168228326, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7487768519580564064, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_LocalScale.x
       value: 19.328083
@@ -61045,6 +61097,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pinchos (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5258464302168228326, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7487768519580564064, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_LocalScale.x
       value: 3.021819
@@ -61114,6 +61170,10 @@ PrefabInstance:
     - target: {fileID: 4285859548875911569, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_Name
       value: Pinchos (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5258464302168228326, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7487768519580564064, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_LocalScale.x
@@ -63079,6 +63139,10 @@ PrefabInstance:
     - target: {fileID: 4285859548875911569, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_Name
       value: Pinchos (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5258464302168228326, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7487768519580564064, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_LocalScale.x
@@ -69286,6 +69350,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SuperDeadZone (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5258464302168228326, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7487768519580564064, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_LocalScale.x
       value: 38.179142
@@ -69802,6 +69870,10 @@ PrefabInstance:
     - target: {fileID: 4285859548875911569, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_Name
       value: Pinchos (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5258464302168228326, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7487768519580564064, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_LocalScale.x
@@ -74842,6 +74914,10 @@ PrefabInstance:
     - target: {fileID: 4285859548875911569, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_Name
       value: Pinchos (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5258464302168228326, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7487768519580564064, guid: 24468389cd5e8ae4cada6ed5ed619c8c, type: 3}
       propertyPath: m_LocalScale.x

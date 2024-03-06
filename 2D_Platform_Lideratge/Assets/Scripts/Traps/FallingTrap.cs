@@ -14,6 +14,7 @@ public class FallingTrap : MonoBehaviour
 
     private void Awake()
     {
+        gameObject.AddComponent<AudioSource>().playOnAwake = false;
     }
     private void Start()
     {
@@ -42,6 +43,11 @@ public class FallingTrap : MonoBehaviour
                 StartCoroutine(m_Player.CODeath());
             }
         }
+        else if(collision.collider.tag != "Wall")
+        {
+            Debug.Log("Hit Ground");
+            SoundManager.PlaySFX(AudioNames.BLOQUE, GetComponent<AudioSource>());
+        }
     }
 
     //private void OnTriggerEnter2D(Collider2D collision)
@@ -55,6 +61,7 @@ public class FallingTrap : MonoBehaviour
 
     private void Update()
     {
+        if (m_Rb.bodyType == RigidbodyType2D.Static) return;
         if (m_Rb.velocity.y < minVelocityToKill && m_Rb.velocity.y > -minVelocityToKill)
         {
             canKill = false;

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[RequireComponent(typeof(AudioSource))]
 public class CoheteLauncher : MonoBehaviour
 {
     [SerializeField] private GameObject _cohete;
@@ -13,9 +15,14 @@ public class CoheteLauncher : MonoBehaviour
     [SerializeField] private float timeToDestroy;
 
     [SerializeField] private ParticleSystem _ShootParticles;
-
+    private AudioSource _audioSource;
 
     private float _shootTimer;
+
+    private void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>(); 
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +42,7 @@ public class CoheteLauncher : MonoBehaviour
 
     private void Shoot()
     {
+        SoundManager.PlaySFX(AudioNames.SHOOT, _audioSource);
         Rigidbody2D rb = Instantiate(_cohete, _shootPosition.position, Quaternion.identity).GetComponent<Rigidbody2D>();
         rb.velocity = _coheteSpeed;
         Destroy(rb.gameObject, timeToDestroy);
