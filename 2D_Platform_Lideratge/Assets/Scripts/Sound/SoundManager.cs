@@ -17,7 +17,15 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
-        if (_instance == null) _instance = this;
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
         //Initialize Audio Sources
         _audioSource = gameObject.AddComponent<AudioSource>();
