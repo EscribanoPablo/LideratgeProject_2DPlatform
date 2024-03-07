@@ -15,6 +15,13 @@ public class SoundManager : MonoBehaviour
     private float _soundVolume = 1;
     private float _musicVolume = 1;
 
+    private void OnLevelWasLoaded(int level)
+    {
+        if (level == 1)
+            PlayMusic(AudioNames.LVLMUSIC);
+    }
+
+
     private void Awake()
     {
         if (_instance == null)

@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class DoorKeyActivation : PlayerDetector
 {
     [SerializeField] Animator m_DoorAnimator;
     SpriteRenderer spriteRenderer;
     BoxCollider2D boxCollider;
+
+    AudioSource audioSource;
+    AudioSource audioSource2;
 
     void Start()
     {
@@ -14,6 +18,8 @@ public class DoorKeyActivation : PlayerDetector
         boxCollider = GetComponent<BoxCollider2D>();
 
         gameObject.SetActive(true);
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource2 = gameObject.AddComponent<AudioSource>();
     }
 
     void Update()
@@ -34,5 +40,7 @@ public class DoorKeyActivation : PlayerDetector
         gameObject.SetActive(false); // or disable spriteRender
         //spriteRenderer.enabled = false;
         //boxCollider.enabled = false;
+        SoundManager.PlaySFX("COLLECT", audioSource);
+        SoundManager.PlaySFX("DOOROPEN", audioSource2);
     }
 }
