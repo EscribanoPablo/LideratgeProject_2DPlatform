@@ -31,8 +31,8 @@ public class DoorKeyActivation : PlayerDetector
         m_DoorAnimator.SetTrigger("KeyPicked");
         m_DoorAnimator.SetBool("KeyPicked", true);
 
-        //gameObject.SetActive(false); // or disable spriteRender
-        spriteRenderer.enabled = false;
-        boxCollider.enabled = false;
+        gameObject.SetActive(false); // or disable spriteRender
+        //spriteRenderer.enabled = false;
+        //boxCollider.enabled = false;
     }
 }

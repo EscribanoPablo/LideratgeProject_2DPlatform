@@ -318,7 +318,7 @@ public class PlayerController : MonoBehaviour
         //Die anim
         _deathParticles.Play();
         _VFX.SetActive(false);
-        SoundManager.PlaySFX(AudioNames.DIE, _audioSources[0]);
+        //SoundManager.PlaySFX(AudioNames.DIE, _audioSources[0]);
         //TODO
 
         yield return new WaitForSeconds(1);
