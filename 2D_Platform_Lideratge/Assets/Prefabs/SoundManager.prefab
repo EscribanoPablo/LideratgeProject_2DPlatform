@@ -120,7 +120,7 @@ MonoBehaviour:
     MaxPitch: 1
   - Name: DASH
     Clips:
-    - {fileID: 8300000, guid: 3c8f8aeae3877ac4c93996263d7c33e0, type: 3}
+    - {fileID: 8300000, guid: 928470f3ab18dc645917714275356a46, type: 3}
     Volume: 0.5
     MinPitch: 1
     MaxPitch: 1

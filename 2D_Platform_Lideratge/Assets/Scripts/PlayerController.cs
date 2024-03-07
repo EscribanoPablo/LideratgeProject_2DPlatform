@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
         _currentJumpCount = 0;
         originalGravityScale = rigidbody.gravityScale;
 
-        SoundManager.PlayMusic(AudioNames.LVLMUSIC);
+        //SoundManager.PlayMusic(AudioNames.LVLMUSIC);
     }
 
     void Update()
@@ -190,6 +190,12 @@ public class PlayerController : MonoBehaviour
         rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         _animator.SetTrigger("Jump");
         _dustParticles.Play();
+
+        if(!_isCrouchJumpReady) 
+            PlaySound("JUMP");
+        else
+            PlaySound("LONGJUMP");
+
     }
 
     private Vector2 GetClampedVelocities()
@@ -225,10 +231,12 @@ public class PlayerController : MonoBehaviour
         if (isDashing) return;
         if (Input.GetKeyDown(dashKeyCode) && canDash)
         {
-            Debug.Log("Dash");
+            //Debug.Log("Dash");
+            PlaySound("DASH");
             StartCoroutine(DoDash());
+
         }
-        
+
     }
 
     private void PlayerCrouch()
