@@ -18,8 +18,11 @@ public class DoorKeyActivation : PlayerDetector
         boxCollider = GetComponent<BoxCollider2D>();
 
         gameObject.SetActive(true);
-        audioSource = gameObject.AddComponent<AudioSource>();
-        audioSource2 = gameObject.AddComponent<AudioSource>();
+        audioSource = new GameObject("Audio").AddComponent<AudioSource>();
+        audioSource2 = new GameObject("Audio2").AddComponent<AudioSource>();
+
+        audioSource.playOnAwake = false;
+        audioSource2.playOnAwake = false;
     }
 
     void Update()
