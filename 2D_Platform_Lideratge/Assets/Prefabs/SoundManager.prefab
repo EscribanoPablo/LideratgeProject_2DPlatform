@@ -51,6 +51,12 @@ MonoBehaviour:
     Volume: 0.15
     MinPitch: 1
     MaxPitch: 1
+  - Name: MENUMUSIC
+    Clips:
+    - {fileID: 8300000, guid: cad4213d82126e44e98e38eb779827a4, type: 3}
+    Volume: 0.15
+    MinPitch: 1
+    MaxPitch: 1
   _sfxFiles:
   - Name: STEP
     Clips:
