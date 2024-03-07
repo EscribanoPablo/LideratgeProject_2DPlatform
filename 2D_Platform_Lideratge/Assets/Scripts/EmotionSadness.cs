@@ -10,7 +10,8 @@ public class EmotionSadness : MonoBehaviour
     [SerializeField] private KeyCode _emotionInput;
 
     [Header("References")]
-    [SerializeField] private GameObject _umbrellaVFX;
+    //[SerializeField] private GameObject _umbrellaVFX;
+    [SerializeField] private Animator _animator;
 
     [Header("Attributes")]
     [Range(0, 5)][SerializeField] private float _umbrellaGravity;
@@ -62,7 +63,8 @@ public class EmotionSadness : MonoBehaviour
         _playerController.StopVerticalVelocity();
         _playerController.SetMaxVelocity(_maxVelocity);
         _isUmbrellaOpen = true;
-        _umbrellaVFX.SetActive(true);
+        _animator.SetBool("UmbrellaOpen", _isUmbrellaOpen);
+        //_umbrellaVFX.SetActive(true);
         Debug.Log("Umbrella Open");
     }
 
@@ -71,7 +73,8 @@ public class EmotionSadness : MonoBehaviour
         _isUmbrellaOpen = false;
         _playerController.SetGravity(_initialGravity);
         _playerController.SetMaxVelocity(_initialMaxVelocity);
-        _umbrellaVFX.SetActive(false);
+        _animator.SetBool("UmbrellaOpen", _isUmbrellaOpen);
+        //_umbrellaVFX.SetActive(false);
         Debug.Log("Umbrella Closed");
     }
 

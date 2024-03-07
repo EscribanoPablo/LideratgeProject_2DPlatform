@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 235524550929476935, guid: 5d62540031c073044adb479595782ef5, type: 3}
+      propertyPath: whatIsGround.m_Bits
+      value: 72
+      objectReference: {fileID: 0}
     - target: {fileID: 3546819650560208530, guid: 5d62540031c073044adb479595782ef5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.26
@@ -175,10 +179,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6678728650953186532, guid: 5d62540031c073044adb479595782ef5, type: 3}
-      propertyPath: m_Parameters.colorGradient.m_ColorSpace
-      value: -1
+    - target: {fileID: 7111519254035885568, guid: 5d62540031c073044adb479595782ef5, type: 3}
+      propertyPath: m_Size.x
+      value: 0.61857724
       objectReference: {fileID: 0}
+    - target: {fileID: 7111519254035885568, guid: 5d62540031c073044adb479595782ef5, type: 3}
+      propertyPath: m_Size.y
+      value: 1.264
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318517637471801278, guid: 5d62540031c073044adb479595782ef5, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 2007514825}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1413,6 +1425,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: FallingTrap (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2164390953210385880, guid: af3fdc8a0a6fb8e479133cb918c6eeb1, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
+      value: 0.34293887
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164390953210385880, guid: af3fdc8a0a6fb8e479133cb918c6eeb1, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
+      value: 0.31557512
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164390953210385880, guid: af3fdc8a0a6fb8e479133cb918c6eeb1, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
+      value: -0.3533879
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164390953210385880, guid: af3fdc8a0a6fb8e479133cb918c6eeb1, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
+      value: 0.3169811
+      objectReference: {fileID: 0}
     - target: {fileID: 5907766670135697527, guid: af3fdc8a0a6fb8e479133cb918c6eeb1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.25521454
@@ -2164,6 +2192,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2007514825 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9207436000135493392, guid: 5d62540031c073044adb479595782ef5, type: 3}
+  m_PrefabInstance: {fileID: 68425621}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1194385651458479264
 PrefabInstance:
   m_ObjectHideFlags: 0
