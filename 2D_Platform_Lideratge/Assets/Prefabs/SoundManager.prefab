@@ -94,3 +94,15 @@ MonoBehaviour:
     Volume: 0.25
     MinPitch: 0.9
     MaxPitch: 1.1
+  - Name: DOOROPEN
+    Clips:
+    - {fileID: 8300000, guid: 7713be7080ad7994b839a558b6134dcf, type: 3}
+    Volume: 0.5
+    MinPitch: 0.9
+    MaxPitch: 1.1
+  - Name: COLLECT
+    Clips:
+    - {fileID: 8300000, guid: 1f579ef355aeb6c4b947621170727002, type: 3}
+    Volume: 0.5
+    MinPitch: 0.9
+    MaxPitch: 1.1
