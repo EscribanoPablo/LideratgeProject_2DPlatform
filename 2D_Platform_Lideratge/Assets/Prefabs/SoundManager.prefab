@@ -48,7 +48,7 @@ MonoBehaviour:
   - Name: LVLMUSIC
     Clips:
     - {fileID: 8300000, guid: ceaff2c4f0fdb214e8bde759a3894aaa, type: 3}
-    Volume: 0.15
+    Volume: 0.1
     MinPitch: 1
     MaxPitch: 1
   - Name: MENUMUSIC
@@ -78,7 +78,7 @@ MonoBehaviour:
     MaxPitch: 1
   - Name: CROUCH
     Clips:
-    - {fileID: 8300000, guid: d6985597a3eb5094588503ee8346888d, type: 3}
+    - {fileID: 8300000, guid: d45a96c5b05be4941981ea7f69c07bb4, type: 3}
     Volume: 0.5
     MinPitch: 1
     MaxPitch: 1
@@ -98,11 +98,29 @@ MonoBehaviour:
     Clips:
     - {fileID: 8300000, guid: 7713be7080ad7994b839a558b6134dcf, type: 3}
     Volume: 0.5
-    MinPitch: 0.9
-    MaxPitch: 1.1
+    MinPitch: 1
+    MaxPitch: 1
   - Name: COLLECT
     Clips:
     - {fileID: 8300000, guid: 1f579ef355aeb6c4b947621170727002, type: 3}
     Volume: 0.5
     MinPitch: 0.9
     MaxPitch: 1.1
+  - Name: PARAGUAS
+    Clips:
+    - {fileID: 8300000, guid: b0c6619b66a2480489815c00e47e2a1e, type: 3}
+    Volume: 0.5
+    MinPitch: 0.9
+    MaxPitch: 1.1
+  - Name: LONGJUMP
+    Clips:
+    - {fileID: 8300000, guid: 3c8f8aeae3877ac4c93996263d7c33e0, type: 3}
+    Volume: 0.5
+    MinPitch: 1
+    MaxPitch: 1
+  - Name: DASH
+    Clips:
+    - {fileID: 8300000, guid: 3c8f8aeae3877ac4c93996263d7c33e0, type: 3}
+    Volume: 0.5
+    MinPitch: 1
+    MaxPitch: 1

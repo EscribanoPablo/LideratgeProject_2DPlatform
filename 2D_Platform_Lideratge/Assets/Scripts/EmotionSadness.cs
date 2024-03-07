@@ -66,6 +66,7 @@ public class EmotionSadness : MonoBehaviour
         _animator.SetBool("UmbrellaOpen", _isUmbrellaOpen);
         //_umbrellaVFX.SetActive(true);
         Debug.Log("Umbrella Open");
+        SoundManager.PlaySFX("PARAGUAS", GetComponent<AudioSource>());
     }
 
     private void CloseUmbrella()

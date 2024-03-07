@@ -15,10 +15,17 @@ public class SoundManager : MonoBehaviour
     private float _soundVolume = 1;
     private float _musicVolume = 1;
 
+    private int previousLevel = 0;
+
     private void OnLevelWasLoaded(int level)
     {
-        if (level == 1)
-            PlayMusic(AudioNames.LVLMUSIC);
+        if(previousLevel != level)
+        {
+            if (level == 1)
+                PlayMusic(AudioNames.LVLMUSIC);
+
+            previousLevel = level;
+        }
     }
 
 
