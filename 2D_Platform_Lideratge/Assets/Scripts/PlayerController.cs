@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     [Range(0, 2)] [SerializeField] private float _dashDuration = 0.2f;
     [Range(0, 5)] [SerializeField] private float _timeToCrouchJump = 1f;
     [Range(1, 5)] [SerializeField] private float _crouchJumpMultiplier = 2f;
-
+    Vector2 _startPosition;
 
 
 
@@ -91,6 +91,7 @@ public class PlayerController : MonoBehaviour
         _emotionSadness = GetComponent<EmotionSadness>();
 
         _audioSources = GetComponents<AudioSource>();
+        _startPosition = transform.position;
     }
 
     void Start()
@@ -318,7 +319,7 @@ public class PlayerController : MonoBehaviour
         //Die anim
         _deathParticles.Play();
         _VFX.SetActive(false);
-        //SoundManager.PlaySFX(AudioNames.DIE, _audioSources[0]);
+        SoundManager.PlaySFX(AudioNames.DIE, _audioSources[0]);
         //TODO
 
         yield return new WaitForSeconds(1);
@@ -343,6 +344,11 @@ public class PlayerController : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(groundChecker.position, 0.05f);
+    }
+
+    public void PlayAgain()
+    {
+        transform.position = _startPosition; 
     }
 
     public void PlaySound(string soundName)
