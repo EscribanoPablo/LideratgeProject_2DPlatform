@@ -23,6 +23,8 @@ public class DoorKeyActivation : PlayerDetector
 
         audioSource.playOnAwake = false;
         audioSource2.playOnAwake = false;
+
+        GameManager.GetGameManager().AddKey(this);
     }
 
     void Update()
@@ -45,5 +47,11 @@ public class DoorKeyActivation : PlayerDetector
         //boxCollider.enabled = false;
         SoundManager.PlaySFX("COLLECT", audioSource);
         SoundManager.PlaySFX("DOOROPEN", audioSource2);
+    }
+
+    public void Restart()
+    {
+        gameObject.SetActive(true); // or disable spriteRender
+        m_DoorAnimator.SetBool("KeyPicked", false);
     }
 }

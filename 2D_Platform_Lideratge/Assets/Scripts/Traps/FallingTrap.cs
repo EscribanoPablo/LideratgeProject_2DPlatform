@@ -12,6 +12,9 @@ public class FallingTrap : MonoBehaviour
     [SerializeField] float minVelocityToKill = 3;
     bool canKill;
 
+    Vector2 startPos;
+    Quaternion startRot;
+
     private void Awake()
     {
         gameObject.AddComponent<AudioSource>().playOnAwake = false;
@@ -21,6 +24,11 @@ public class FallingTrap : MonoBehaviour
         m_Player = GameManager.GetGameManager().GetPlayer();
         m_Rb = GetComponent<Rigidbody2D>();
         m_Rb.bodyType = RigidbodyType2D.Static;
+
+        startPos = transform.position;
+        startRot = transform.rotation;
+
+        GameManager.GetGameManager().AddFallingTrap(this);
     }
 
     private void OnEnable()
@@ -73,5 +81,12 @@ public class FallingTrap : MonoBehaviour
     {
         m_Rb.bodyType = RigidbodyType2D.Dynamic;
         m_fallingTrapTrigger.SetCanDetect(false);
+    }
+
+    public void Restart()
+    {
+        transform.position = startPos;
+        transform.rotation = startRot;
+        m_Rb.bodyType = RigidbodyType2D.Static;
     }
 }

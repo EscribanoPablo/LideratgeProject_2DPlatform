@@ -336,15 +336,16 @@ public class PlayerController : MonoBehaviour
         UIManager.ShowTelon();
         yield return new WaitForSeconds(2);
         //Restar scene
-        Restart();
+        GameManager.GetGameManager().Restart();
+        UIManager.HideTelon();
         yield return null;
     }
 
-    private void Restart()
+    public void Restart()
     {
         _isDead = false;
         _VFX.SetActive(true);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         transform.position = GameManager.GetGameManager().SpawnPosition;
         rigidbody.gravityScale = originalGravityScale;
     }

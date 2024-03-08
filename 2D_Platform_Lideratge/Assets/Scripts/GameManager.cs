@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
 
     public Vector2 SpawnPosition { get; set; }
 
+    private List<FallingTrap> fallingTraps;
+    private List<DoorKeyActivation> keys;
+
     //private void Awake()
     //{
     //    if (m_GameManager == null)
@@ -34,6 +37,8 @@ public class GameManager : MonoBehaviour
         {
             GameObject l_gameObject = new GameObject("GameManager");
             m_GameManager = l_gameObject.AddComponent<GameManager>();
+            m_GameManager.fallingTraps = new List<FallingTrap>();
+            m_GameManager.keys = new List<DoorKeyActivation>();
             GameManager.DontDestroyOnLoad(l_gameObject);
         }
         return m_GameManager;
@@ -42,6 +47,31 @@ public class GameManager : MonoBehaviour
     public PlayerController GetPlayer()
     {
         return m_Player;
+    }
+
+    public void Restart()
+    {
+        m_Player.Restart();
+
+        foreach (FallingTrap trap in fallingTraps)
+        {
+            trap.Restart();
+        }
+
+        foreach (DoorKeyActivation key in keys)
+        {
+            key.Restart();
+        }
+    }
+
+    public void AddFallingTrap(FallingTrap fallingTrap)
+    {
+        fallingTraps.Add(fallingTrap);
+    }
+
+    public void AddKey(DoorKeyActivation key)
+    {
+        keys.Add(key);
     }
 
 }
